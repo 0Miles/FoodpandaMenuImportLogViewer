@@ -1,0 +1,170 @@
+﻿<Window x:Class="FoodpandaMenuImportLog.FoodpandaMenuImportLogViewer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:numericupdownlib="clr-namespace:NumericUpDownLib;assembly=NumericUpDownLib"
+        mc:Ignorable="d" Closing="Window_Closing"
+        Title="Foodpanda Menu Import Log Viewer" Height="580" Width="1024" MinWidth="1024" MinHeight="580">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border ClipToBounds="True" BorderThickness="0">
+            <Image Stretch="UniformToFill" HorizontalAlignment="Center" Source="karyl.png"/>
+        </Border>
+
+        <Border  Grid.Column="1" Background="#EFEFEF" BorderBrush="DarkGray" 
+           BorderThickness="0" ClipToBounds="True">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" MaxWidth="320"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <Border Background="Transparent" BorderBrush="#88000000" 
+                  BorderThickness="20 0 0 0" Margin="-20">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="0" BlurRadius="8"/>
+                    </Border.Effect>
+                </Border>
+                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10,0,10,0" >
+                    <Label Content="API URL" HorizontalAlignment="Left"  Margin="5,12,5,0" FontSize="16" FontWeight="Bold" VerticalAlignment="Top"/>
+                    <TextBox Text="{Binding ApiUrlInput, Mode=TwoWay}" TextWrapping="NoWrap" FontSize="14" Padding="2,5" Margin="12,4"  HorizontalAlignment="Stretch"/>
+
+                    <Label Content="Foodpanda Info" HorizontalAlignment="Left" Margin="5,12,5,0" FontSize="16" FontWeight="Bold" VerticalAlignment="Top"/>
+                    <Grid Margin="12,4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="username" HorizontalAlignment="Left" Margin="5" FontSize="16" VerticalAlignment="Center"/>
+                        <TextBox Grid.Column="1" TextWrapping="NoWrap" Text="{Binding UsernameInput, Mode=TwoWay}" FontSize="16" Padding="2,5" VerticalAlignment="Center" HorizontalAlignment="Stretch" />
+                    </Grid>
+                    <Grid Margin="12,4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="password" HorizontalAlignment="Left" Margin="5" FontSize="16" VerticalAlignment="Center" MinWidth="100"/>
+                        <TextBox Grid.Column="1" TextWrapping="NoWrap" Text="{Binding PasswordInput, Mode=TwoWay}" FontSize="16" Padding="2,5" VerticalAlignment="Center" HorizontalAlignment="Stretch" />
+                    </Grid>
+                    <Grid Margin="12,4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="chain code" HorizontalAlignment="Left" Margin="5" FontSize="16" VerticalAlignment="Center" MinWidth="100"/>
+                        <TextBox Grid.Column="1" TextWrapping="NoWrap" Text="{Binding ChainCodeInput, Mode=TwoWay}" FontSize="16" Padding="2,5" VerticalAlignment="Center" HorizontalAlignment="Stretch" />
+                    </Grid>
+                    <Grid Margin="12,4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="vendor ID" HorizontalAlignment="Left" Margin="5" FontSize="16" VerticalAlignment="Center" MinWidth="100"/>
+                        <TextBox Grid.Column="1" TextWrapping="NoWrap" Text="{Binding VendorIdInput, Mode=TwoWay}" FontSize="16" Padding="2,5" VerticalAlignment="Center" HorizontalAlignment="Stretch" />
+                    </Grid>
+                    <Label Content="Query Params" HorizontalAlignment="Left"  Margin="5,12,5,0" FontSize="16" FontWeight="Bold" VerticalAlignment="Top"/>
+                    <Grid Margin="12,4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="from" HorizontalAlignment="Left" Margin="5" FontSize="16" VerticalAlignment="Center" MinWidth="100"/>
+                        <DatePicker Grid.Column="1" BorderThickness="0" SelectedDate="{Binding FormDateInput, Mode=TwoWay}" FontSize="16" Padding="2,5" VerticalAlignment="Center" HorizontalAlignment="Stretch" />
+                    </Grid>
+                    <Grid Margin="12,4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="to" HorizontalAlignment="Left" Margin="5" FontSize="16" VerticalAlignment="Center" MinWidth="100"/>
+                        <DatePicker Grid.Column="1" BorderThickness="0" SelectedDate="{Binding ToDateInput, Mode=TwoWay}" FontSize="16" Padding="2,5" VerticalAlignment="Center" HorizontalAlignment="Stretch" />
+                    </Grid>
+                    <Grid Margin="12,4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="limit" HorizontalAlignment="Left" Margin="5" FontSize="16" VerticalAlignment="Center"/>
+                        <numericupdownlib:NumericUpDown Grid.Column="1" BorderThickness="0" IsMouseDragEnabled="True" Focusable="False" Background="White" Value="{Binding LimitInput, Mode=TwoWay}" BorderBrush="#FF617584" MinValue="1" MaxValue="100" FontSize="16" Padding="2,5" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+                    </Grid>
+                </StackPanel>
+                <Grid Grid.Column="1" Margin="0,0,15,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button Content="Query" HorizontalAlignment="Stretch" Height="46" VerticalAlignment="Center" Click="QueryButton_Click" />
+                    <ListView Grid.Row="1"
+                              HorizontalAlignment="Stretch"
+                              VerticalAlignment="Stretch"
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                              Margin="0,0,0,10"
+                              
+                              ItemsSource="{Binding MenuImportLogList}">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="{x:Type ListViewItem}">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                <Setter Property="Focusable" Value="false"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border Padding="6,10" BorderThickness="0,0,0,1" BorderBrush="LightGray">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+
+
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                                <TextBlock Text="{Binding createdTime}" VerticalAlignment="Center" Margin="0,2" Foreground="Gray" />
+                                            </StackPanel>
+                                            <StackPanel Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Right" >
+                                                <TextBox Text="{Binding menuImportId}" VerticalAlignment="Center" Margin="2" Background="Transparent" BorderThickness="0" />
+                                                <Border BorderThickness="1" CornerRadius="3" Padding="6,2" Margin="2,0,10,0" VerticalAlignment="Center">
+                                                    <Border.Style>
+                                                        <Style TargetType="Border">
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding status}" Value="done">
+                                                                    <Setter Property="Background" Value="YellowGreen"/>
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{Binding status}" Value="in_progress">
+                                                                    <Setter Property="Background" Value="DarkOrange"/>
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{Binding status}" Value="failed">
+                                                                    <Setter Property="Background" Value="DarkRed"/>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Border.Style>
+                                                    <TextBlock Foreground="White" Text="{Binding status}"></TextBlock>
+                                                </Border>
+                                            </StackPanel>
+                                        </Grid>
+                                        <TextBox Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding message}" Margin="0,10" TextWrapping="Wrap" HorizontalAlignment="Stretch" Height="Auto" IsReadOnly="True" BorderThickness="0" Background="Transparent"/>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Grid Grid.Row="1" Height="36" VerticalAlignment="Bottom" Margin="0,0,0,10" Visibility="{Binding QueryProcessBarVisibity}">
+                        <ProgressBar Value="{Binding QueryProcessBarValue}" />
+                        <TextBlock Text="{Binding QueryProcessBarLabel}" HorizontalAlignment="Center" FontSize="16" VerticalAlignment="Center" />
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+
+
+
+    </Grid>
+</Window>
