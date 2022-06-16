@@ -101,8 +101,8 @@
                               HorizontalAlignment="Stretch"
                               VerticalAlignment="Stretch"
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                              ScrollViewer.CanContentScroll="False"
                               Margin="0,0,0,10"
-                              
                               ItemsSource="{Binding MenuImportLogList}">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="{x:Type ListViewItem}">
