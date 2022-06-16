@@ -273,7 +273,7 @@ namespace FoodpandaMenuImportLog
 
             ViewModel.QueryProcessBarLabel = "Finished";
             ViewModel.QueryProcessBarValue = 100;
-            Thread.Sleep(100);
+            Thread.Sleep(1000);
             ViewModel.QueryProcessBarVisibity = Visibility.Collapsed;
         }
 
