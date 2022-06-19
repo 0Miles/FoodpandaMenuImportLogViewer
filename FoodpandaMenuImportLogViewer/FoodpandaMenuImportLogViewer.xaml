@@ -12,7 +12,7 @@
         </Grid.ColumnDefinitions>
 
         <Border ClipToBounds="True" BorderThickness="0">
-            <Image Stretch="UniformToFill" HorizontalAlignment="Center" Source="karyl.png"/>
+            <Image Stretch="UniformToFill" HorizontalAlignment="Center" Source="cover.jpg"/>
         </Border>
 
         <Border  Grid.Column="1" Background="#EFEFEF" BorderBrush="DarkGray" 
